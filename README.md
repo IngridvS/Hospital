@@ -17,3 +17,15 @@ Deseja-se ainda informatizar a receita do médico, de maneira que, no encerramen
 
 ![Diagrama Hospital](https://github.com/IngridvS/Hospital/assets/142261730/c17e2837-fbf2-4925-a11c-27dcf28a3cf0)
 
+
+# Etapa 2
+
+Após a primeira versão do projeto de banco de dados para o sistema hospitalar, notou-se a necessidade de expansão das funcionalidades, incluindo alguns requisitos essenciais a essa versão do software. As funcionalidades em questão são para o controle na internação de pacientes. 
+
+![Diagrama Hospital(1)](https://github.com/IngridvS/Hospital/assets/142261730/a07b37c4-5438-4e44-9088-c4679380d2b4)
+
+![informações hospital](https://github.com/IngridvS/Hospital/assets/142261730/16ef8acd-3a96-478b-87aa-b8fd8eff5e40)
+
+
+
+

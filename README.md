@@ -26,7 +26,7 @@ Após a primeira versão do projeto de banco de dados para o sistema hospitalar,
 
 ![informações hospital](https://github.com/IngridvS/Hospital/assets/142261730/16ef8acd-3a96-478b-87aa-b8fd8eff5e40)
 
-# Etapa3  
+# Etapa3  - Alimentando o banco de dados
 Crie scripts de povoamento das tabelas desenvolvidas na atividade anterior
 Observe as seguintes atividades: 
 Inclua ao menos dez médicos de diferentes especialidades.

@@ -289,7 +289,83 @@ INSERT INTO `internacao` (id_medico, id_paciente, id_quarto, id_enfermeira, data
 ('14', '14', 14, '14', '2024-02-01', '2024-02-10', '2024-02-15'),
 ('15', '15', 15, '15', '2024-03-01', '2024-03-10', '2024-03-15');
 
+ALTER TABLE medico ADD em_atividade VARCHAR(100);
 
+UPDATE medico SET em_atividade = 'Ativo' WHERE id_medico = 1;
+UPDATE medico SET em_atividade = 'Ativo' WHERE id_medico = 2;
+UPDATE medico SET em_atividade = 'Inativo' WHERE id_medico = 3;
+UPDATE medico SET em_atividade = 'Ativo' WHERE id_medico = 4;
+UPDATE medico SET em_atividade = 'Ativo' WHERE id_medico = 5;
+UPDATE medico SET em_atividade = 'Inativo' WHERE id_medico = 6;
+UPDATE medico SET em_atividade = 'Ativo' WHERE id_medico = 7;
+UPDATE medico SET em_atividade = 'Ativo' WHERE id_medico = 8;
+UPDATE medico SET em_atividade = 'Inativo' WHERE id_medico = 9;
+UPDATE medico SET em_atividade = 'Ativo' WHERE id_medico = 10;
+
+SELECT *
+FROM Consulta
+WHERE YEAR(Data_consulta) = 2020 OR id_Convenio IS NOT NULL;
+
+SELECT AVG(Valor_consulta) AS ValorMedioConsultas
+FROM Consulta
+WHERE YEAR(Data_consulta) = 2020 OR id_Convenio IS NOT NULL;
+
+SELECT *
+FROM Internacao
+WHERE Data_efet_alta > Data_prev_alta;
+
+SELECT *
+FROM receita
+WHERE id_consulta = (SELECT MIN(id_consulta) FROM Consulta);
+
+SELECT *
+FROM consulta
+WHERE id_convenio IS NULL
+ORDER BY valor_consulta DESC
+LIMIT 1;
+
+SELECT *
+FROM consulta
+WHERE id_convenio IS NULL
+ORDER BY valor_consulta ASC
+LIMIT 1;
+
+select *, DATEDIFF(data_efet_alta, data_entrada) dias_internado, tipo_quarto.valor_diario, DATEDIFF(data_efet_alta, data_entrada) * tipo_quarto.valor_diario valor_total from internacao inner join quarto 
+on internacao.id_quarto = quarto.id_quarto inner join tipo_quarto 
+on quarto.id_tipo_quarto = tipo_quarto.id_tipo_quarto;
+
+SELECT I.data_entrada, I.desc_procedimentos, I.id_quarto
+FROM internacao I
+JOIN Quarto Q ON I.id_quarto = Q.id_quarto
+WHERE id_tipo_quarto = 'apartamento';
+
+select nome_paciente, data_consulta, nome_especialidade from consulta c inner join paciente p 
+on p.id_paciente = c.id_paciente inner join especialidade e 
+on e.id_especialidade = c.id_especialidade 
+where c.id_especialidade <> 1 and year(c.data_consulta) - year(p.data_nascimento_paciente) < 19 and year(c.data_consulta) - year(p.data_nascimento_paciente) > 0 
+order by c.data_consulta;
+
+SELECT nome_paciente, nome_medico, data_entrada, desc_procedimentos
+FROM internacao I
+JOIN medico M ON I.id_medico = M.id_medico
+JOIN paciente P ON I.id_paciente = P.id_paciente
+WHERE M.id_especialidade = 'gastroenterologia'; -- AND I.id_tipo_quarto = 'enfermaria' essa parte não funciona 
+
+SELECT nome_medico, COUNT(C.id_consulta) AS QuantConsultas
+FROM medico 
+LEFT JOIN consulta  ON id_medico = id_medico
+GROUP BY nome_medico;
+
+SELECT *
+FROM medico
+WHERE nome_medico LIKE '%Gabriel%';
+
+SELECT nome_enfermeiro, E.cre, COUNT(I.id_internacao) AS NumeroInternacoes
+FROM enfermeiro E
+JOIN ParticipacaoEnfermeiro P ON E.id_enfermeiro = P.id_enfermeiro
+JOIN internacao I ON P.id_internacao = I.id_internacao
+GROUP BY E.nome_enfermeiro, E.cre
+HAVING COUNT(I.id_internacao) > 1;
 
 
 

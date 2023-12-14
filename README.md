@@ -45,6 +45,33 @@ Considerando que “a princípio o hospital trabalha com apartamentos, quartos d
 Inclua dados de dez profissionais de enfermaria. Associe cada internação a ao menos dois enfermeiros.
 Os dados de tipo de quarto, convênio e especialidade são essenciais para a operação do sistema e, portanto, devem ser povoados assim que o sistema for instalado.
 
+# Etapa 4
+Pensando no banco que já foi criado para o Projeto do Hospital, realize algumas alterações nas tabelas e nos dados usando comandos de atualização e exclusão:
+
+Crie um script que adicione uma coluna “em_atividade” para os médicos, indicando se ele ainda está atuando no hospital ou não. 
+
+Crie um script para atualizar ao menos dois médicos como inativos e os demais em atividade.
+
+![banco de dados_hospital](https://github.com/IngridvS/Hospital/assets/142261730/bf0baa88-af73-4b1a-a8e7-050cae672c14)
+
+
+# Etapa 5
+
+Crie um script e nele inclua consultas que retornem:
+
+Todos os dados e o valor médio das consultas do ano de 2020 e das que foram feitas sob convênio.
+Todos os dados das internações que tiveram data de alta maior que a data prevista para a alta.
+Receituário completo da primeira consulta registrada com receituário associado.
+Todos os dados da consulta de maior valor e também da de menor valor (ambas as consultas não foram realizadas sob convênio).
+Todos os dados das internações em seus respectivos quartos, calculando o total da internação a partir do valor de diária do quarto e o número de dias entre a entrada e a alta.
+Data, procedimento e número de quarto de internações em quartos do tipo “apartamento”.
+Nome do paciente, data da consulta e especialidade de todas as consultas em que os pacientes eram menores de 18 anos na data da consulta e cuja especialidade não seja “pediatria”, ordenando por data de realização da consulta.
+Nome do paciente, nome do médico, data da internação e procedimentos das internações realizadas por médicos da especialidade “gastroenterologia”, que tenham acontecido em “enfermaria”.
+Os nomes dos médicos, seus CRMs e a quantidade de consultas que cada um realizou.
+Todos os médicos que tenham "Gabriel" no nome. 
+Os nomes, CREs e número de internações de enfermeiros que participaram de mais de uma internação.
+
+
 
 
 
